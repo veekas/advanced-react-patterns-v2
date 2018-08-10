@@ -29,12 +29,12 @@ class Toggle extends React.Component {
   }
 }
 
-//
-const CommonToggle = props => (
-  <Toggle {...props}>
-    {({on, toggle}) => <Switch on={on} onClick={toggle} />}
-  </Toggle>
-)
+// offer a common use case that is less flexible but easy
+// const CommonToggle = props => (
+//   <Toggle {...props}>
+//     {({on, toggle}) => <Switch on={on} onClick={toggle} />}
+//   </Toggle>
+// )
 
 // Don't make changes to the Usage component. It's here to show you how your
 // component is intended to be used and is used in the tests.
@@ -42,7 +42,7 @@ const CommonToggle = props => (
 function Usage({ onToggle = (...args) => console.log('onToggle', ...args) }) {
   return (
     <div>
-      <CommonToggle onToggle={onToggle} />
+      {/* <CommonToggle onToggle={onToggle} /> */}
       <Toggle onToggle={onToggle}>
         {({ on, toggle }) => (
           <div>
