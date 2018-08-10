@@ -32,3 +32,7 @@ function ToggleConsumer(props) {
   - return `this.props.children` and call as function
   - provide state or state updaters that consumers need
 - still able to create default props or commonly-used components
+
+## prop collections
+
+- props tht most users will want on the component can be passed and spread in the implementation, that way changes can be made without user having to update
