@@ -1,7 +1,7 @@
 // prop getters
 
-import React from 'react'
-import {Switch} from '../switch'
+import React from 'react';
+import { Switch } from '../switch';
 
 // Check out the previous usage example. How would someone pass
 // a custom `onClick` handler? It'd be pretty tricky! It'd be
@@ -16,24 +16,24 @@ import {Switch} from '../switch'
 // const callAll = (...fns) => (...args) => fns.forEach(fn => fn && fn(...args))
 
 class Toggle extends React.Component {
-  state = {on: false}
+  state = { on: false };
   toggle = () =>
     this.setState(
-      ({on}) => ({on: !on}),
-      () => this.props.onToggle(this.state.on),
-    )
+      ({ on }) => ({ on: !on }),
+      () => this.props.onToggle(this.state.on)
+    );
   getStateAndHelpers() {
     return {
       on: this.state.on,
       toggle: this.toggle,
       togglerProps: {
         'aria-pressed': this.state.on,
-        onClick: this.toggle,
-      },
-    }
+        onClick: this.toggle
+      }
+    };
   }
   render() {
-    return this.props.children(this.getStateAndHelpers())
+    return this.props.children(this.getStateAndHelpers());
   }
 }
 
@@ -42,19 +42,19 @@ class Toggle extends React.Component {
 // You can make all the tests pass by updating the Toggle component.
 function Usage({
   onToggle = (...args) => console.log('onToggle', ...args),
-  onButtonClick = () => console.log('onButtonClick'),
+  onButtonClick = () => console.log('onButtonClick')
 }) {
   return (
     <Toggle onToggle={onToggle}>
-      {({on, getTogglerProps}) => (
+      {({ on, getTogglerProps }) => (
         <div>
-          <Switch {...getTogglerProps({on})} />
+          <Switch {...getTogglerProps({ on })} />
           <hr />
           <button
             {...getTogglerProps({
               'aria-label': 'custom-button',
               onClick: onButtonClick,
-              id: 'custom-button-id',
+              id: 'custom-button-id'
             })}
           >
             {on ? 'on' : 'off'}
@@ -62,8 +62,8 @@ function Usage({
         </div>
       )}
     </Toggle>
-  )
+  );
 }
-Usage.title = 'Prop Getters'
+Usage.title = 'Prop Getters';
 
-export {Toggle, Usage as default}
+export { Toggle, Usage as default };

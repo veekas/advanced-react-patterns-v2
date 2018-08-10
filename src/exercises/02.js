@@ -1,7 +1,7 @@
 // Compound Components
 
 import React from 'react';
-import {Switch} from '../switch';
+import { Switch } from '../switch';
 
 class Toggle extends React.Component {
   // you can create function components as static properties!
@@ -12,20 +12,20 @@ class Toggle extends React.Component {
   // parent Toggle component and the child Candy component more explicit
   // 🐨 You'll need to create three such components here: On, Off, and Button
   //    The button will be responsible for rendering the <Switch /> (with the right props)
-  static On = ({on, children}) => (on ? children : null);
-  static Off = ({on, children}) => (!on ? children : null);
-  static Button = ({on, toggle, ...props}) => (
+  static On = ({ on, children }) => (on ? children : null);
+  static Off = ({ on, children }) => (!on ? children : null);
+  static Button = ({ on, toggle, ...props }) => (
     <Switch on={on} onClick={toggle} {...props} />
   );
   // 💰 Combined with changes you'll make in the `render` method, these should
   //    be able to accept `on`, `toggle`, and `children` as props.
   //    Note that they will _not_ have access to Toggle instance properties
   //    like `this.state.on` or `this.toggle`.
-  state = {on: false};
+  state = { on: false };
   toggle = () =>
     this.setState(
-      ({on}) => ({on: !on}),
-      () => this.props.onToggle(this.state.on),
+      ({ on }) => ({ on: !on }),
+      () => this.props.onToggle(this.state.on)
     );
   render() {
     // we're trying to let people render the components they want within the Toggle component.
@@ -38,12 +38,12 @@ class Toggle extends React.Component {
     // 2. React.cloneElement: https://reactjs.org/docs/react-api.html#cloneelement
     //
     // 🐨 you'll want to completely replace the code below with the above logic.
-    const {on} = this.state;
+    const { on } = this.state;
     return React.Children.map(this.props.children, child =>
       React.cloneElement(child, {
         on: on,
-        toggle: this.toggle,
-      }),
+        toggle: this.toggle
+      })
     );
   }
 }
@@ -51,9 +51,7 @@ class Toggle extends React.Component {
 // Don't make changes to the Usage component. It's here to show you how your
 // component is intended to be used and is used in the tests.
 // You can make all the tests pass by updating the Toggle component.
-function Usage({
-  onToggle = (...args) => console.log('onToggle', ...args),
-}) {
+function Usage({ onToggle = (...args) => console.log('onToggle', ...args) }) {
   return (
     <Toggle onToggle={onToggle}>
       <Toggle.On>The button is on</Toggle.On>
@@ -64,4 +62,4 @@ function Usage({
 }
 Usage.title = 'Compound Components';
 
-export {Toggle, Usage as default};
+export { Toggle, Usage as default };

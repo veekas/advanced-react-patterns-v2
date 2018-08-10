@@ -3,7 +3,7 @@
 import React from 'react';
 // 🐨 uncomment this import to get the switch component.
 // It takes an `onClick` and an `on` prop
-import {Switch} from '../switch';
+import { Switch } from '../switch';
 
 class Toggle extends React.Component {
   // 🐨 this toggle component is going to need to have state for `on`
@@ -17,17 +17,17 @@ class Toggle extends React.Component {
   // The `callback` should be where you call `this.props.onToggle(this.state.on)`
   //
   // 💯 Use a state updater function for `newState` to avoid issues with batching
-  state = {on: false};
+  state = { on: false };
 
   onClick = () => {
     this.setState(
-      ({on}) => ({on: !on}),
-      () => this.props.onToggle(this.state.on),
+      ({ on }) => ({ on: !on }),
+      () => this.props.onToggle(this.state.on)
     );
   };
 
   render() {
-    const {on} = this.state;
+    const { on } = this.state;
     // 🐨 here you'll want to return the switch with the `on` and `onClick` props
     return <Switch on={on} onClick={this.onClick} />;
   }
@@ -36,11 +36,9 @@ class Toggle extends React.Component {
 // Don't make changes to the Usage component. It's here to show you how your
 // component is intended to be used and is used in the tests.
 // You can make all the tests pass by updating the Toggle component.
-function Usage({
-  onToggle = (...args) => console.log('onToggle', ...args),
-}) {
+function Usage({ onToggle = (...args) => console.log('onToggle', ...args) }) {
   return <Toggle onToggle={onToggle} />;
 }
 Usage.title = 'Build Toggle';
 
-export {Toggle, Usage as default};
+export { Toggle, Usage as default };
