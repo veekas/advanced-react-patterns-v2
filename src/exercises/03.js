@@ -16,10 +16,6 @@ import {Switch} from '../switch'
 //   Note: The `defaultValue` can be an object, function, or anything.
 //   It's simply what React will use if the ThemeContext.Consumer is rendered
 //   outside a ThemeContext.Provider
-//   In our situation, it wouldn't make sense to render a Consumer outside a
-//   Provider, so you don't have to specify a defaultValue. One of the extra
-//   credit items shows how to throw a helpful error message if someone attempts
-//   to render a Consumer without a Provider.
 //
 // ...
 // <ThemeContext.Provider value={this.state}>
@@ -44,6 +40,7 @@ import {Switch} from '../switch'
 //   (newlines are ok, like in the above example)
 
 // 🐨 create a ToggleContext with React.createContext here
+const ToggleContext = React.createContext()
 
 class Toggle extends React.Component {
   // 🐨 each of these compound components will need to be changed to use
