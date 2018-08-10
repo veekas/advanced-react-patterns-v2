@@ -36,3 +36,4 @@ function ToggleConsumer(props) {
 ## prop collections
 
 - props tht most users will want on the component can be passed and spread in the implementation, that way changes can be made without user having to update
+- problem occurs when trying to pass custom methods (e.g. call another function in addition to `onToggle` in `onClick`)
