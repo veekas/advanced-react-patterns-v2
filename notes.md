@@ -71,3 +71,12 @@ function ToggleConsumer(props) {
 - props tht most users will want on the component can be passed and spread in the implementation, that way changes can be made without user having to update
 - problem occurs when trying to pass custom methods (e.g. call another function in addition to `onToggle` in `onClick`)
 - useful to support the `event.preventDefault()` mechanism. So in `callAll()` method you could check `event.defaultPrevent`ed before calling each function, and stop of default is prevented. This let's you expose an API similar to the native one. Mostly makes sense when you are implementing a simple component which wraps a single native element.
+
+## state initializers
+
+how to do a reset
+  - `defaultProps`
+  - `initialState`
+  - state set to `this.initialState`
+  - `reset` setting state to initialState again
+  - pass `onReset` to `getStateAndHelpers()`
