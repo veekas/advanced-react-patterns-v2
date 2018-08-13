@@ -74,9 +74,14 @@ function ToggleConsumer(props) {
 
 ## state initializers
 
-how to do a reset
-  - `defaultProps`
+- process:
+  - `defaultProps` in case they don't care to change default
   - `initialState`
   - state set to `this.initialState`
   - `reset` setting state to initialState again
   - pass `onReset` to `getStateAndHelpers()`
+
+## state reducer
+
+- flexibility for the user to customize state
+- process
